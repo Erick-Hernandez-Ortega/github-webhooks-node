@@ -13,7 +13,7 @@ function main(): void {
   
   app.use(express.json());
  
-  app.post('/api/github', controller.webhookHandler);
+  app.post('/api/github', controller.webhookHandler.bind(controller));
   
   app.listen(envs.PORT, (): void => {
     console.log(`App running on port ${envs.PORT}`)
